@@ -13,7 +13,8 @@ Please note: At this time, the repository includes only the inference code and p
 - [x] Inference script
 - [ ] Checkpoint
 - [ ] Training script
-
+- [ ] Gradio inference
+- [ ] Model serving
 # 🛠️ Installation
 Follow the steps below to set up your Python 3.10 environment using Conda and install the required dependencies.
 
