@@ -1,5 +1,5 @@
-# Llambada-v0.1 🐑 🎵
-Welcome to the official implementation of Llambada version 0.1 repository! This project provides the tools and resources to use the Llambada model, an advanced system for music generation.
+# Llambada-v0 🐑 🎵
+Welcome to the official implementation of Llambada version 0 repository! This project provides the tools and resources to use the Llambada model, an advanced system for music generation.
 
 - Paper: [Arxiv](https://arxiv.org/pdf/2411.01661)
 
