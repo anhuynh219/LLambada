@@ -8,15 +8,20 @@ import torch
 def build_llambada_model(
     semantic_cfg,
     coarse_cfg,
+    rvq_ckpt_path,
+    kmean_path,
     device = "cuda",
     semantic_weight:str = None,
     coarse_weight:str = None,
     semantic_cross_entropy_loss_weights =[0.0, 0.0, 1.0],
     coarse_cross_entropy_loss_weights =[0.0, 0.0, 1.0],
 ):
-    wav2vec = get_hubert_kmeans(kmeans_path="./ckpts/kmeans_10s_no_fusion.joblib")
+    wav2vec = get_hubert_kmeans(kmeans_path=kmean_path)
     neural_codec = create_encodec_24khz()
-    clap = create_clap_quantized(device)
+    clap = create_clap_quantized(
+        device,
+        rvq_ckpt_path = rvq_ckpt_path
+    )
     semantic_transformer = create_semantic_transformer(
         dim=semantic_cfg["llambada_cfg"]["dim"],
         depth=semantic_cfg["llambada_cfg"]["depth"],
