@@ -21,9 +21,10 @@ def build_llambada_model(
     neural_codec = create_encodec_24khz()
     clap = create_clap_quantized(
         device,
-        rvq_ckpt_path = rvq_ckpt_path,
+        rvq_checkpoint_path = rvq_ckpt_path,
         checkpoint_path = clap_ckpt_path
     )
+
     semantic_transformer = create_semantic_transformer(
         dim=semantic_cfg["llambada_cfg"]["dim"],
         depth=semantic_cfg["llambada_cfg"]["depth"],

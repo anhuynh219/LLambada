@@ -43,11 +43,23 @@ Utilize the pre-trained Llambada model to generate music easily.
 
 All of the checkpoints for semantic stage and the coarse stage can be downloaded in the [HuggingFace of SongGen](https://huggingface.co/songgen/Llambada)
 
+### Pretrained setup
+
+After downloading the checkpoints, you need to create the ```ckpts/``` folder, then you move all files to the ```ckpts/``` folder. 
+
+Regarding the tokenizer ```bpe_simple_vocab_16e6.txt.gz```, you need to copy that file to the ```/workspace/llambada_test/LLambada/models/base/tokenizers/laion_clap/clap_module``` for the setup.
+
 ## Running Inference
+
+To run the inference, please run via the python file below:
+
 ``` bash
-CUDA_LAUNCH_BLOCKING=1 CUDA_VISIBLE_DEVICES=0 python infer.py
+python infer.py
 ```
+
 Create stunning music compositions with Llambada effortlessly!
+
+Moreover, you can change the gpu for the inference via add this config to the front ```CUDA_VISIBLE_DEVICES=<your device id> ```
 
 ### Contact
 

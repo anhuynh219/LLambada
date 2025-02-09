@@ -86,7 +86,7 @@ class Llambada(torch.nn.Module):
             vocal_semantic_token_ids,
             text_prompt,
             filter_thres=0.95,
-            temperature=1.,
+            temperature=0.95,
             max_time_steps= second_output * 50,
         )
 
@@ -94,7 +94,7 @@ class Llambada(torch.nn.Module):
             accom_semantic_token_ids = accom_semantic_token_ids, 
             vocal_coarse_token_ids = vocal_coarse_token_ids,
             filter_thres=0.9,
-            temperature=1.,
+            temperature=0.95,
             max_time_steps= second_output * 75,
         )
 
