@@ -9,7 +9,7 @@ def load_model(
     semantic_cfg_file = "./configs/model_config/llambada_tiny_cfg/semantic_stage.json",
     coarse_cfg_file = "./configs/model_config/llambada_tiny_cfg/coarse_stage.json",
     semantic_weight = "./ckpts/llambada.transformer.77000.pt",
-    rvq_path = "./ckpts/clap.rvq.950_no_fusion.pt"
+    rvq_path = "./ckpts/clap.rvq.950_no_fusion.pt",
     coarse_weight = "./ckpts/coarse.transformer.17400.pt",
     semantic_cross_entropy_loss_weights = [0.0, 0.0, 1.0],
     coarse_cross_entropy_loss_weights = [0.0, 0.0, 1.0]
