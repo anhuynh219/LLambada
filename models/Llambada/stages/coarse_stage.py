@@ -92,7 +92,7 @@ class CoarseStage(BaseStage):
         reconstruct_wave = False,
         **kwargs
     ):
-
+        # print("Coarse stage: ",accom_semantic_token_ids.shape, vocal_coarse_token_ids.shape)
         accom_coarse_token_ids = self.base_transformer.generate(
             conditioning_token_ids=[accom_semantic_token_ids, vocal_coarse_token_ids],
             pred_token_ids=None,

@@ -1,6 +1,7 @@
 # Llambada-v0 🐑 🎵
 
-❗Note: This repository is in-progress for the final debugging, please wait until we release the full version 
+❗Note: This repository is in-progress for the improvement, please create the issue or contact with us if are there any issues. 
+
 
 Welcome to the official implementation of Llambada version 0 repository! This project provides the tools and resources to use the Llambada model, an advanced system for music generation.
 

@@ -65,6 +65,9 @@ class Llambada(torch.nn.Module):
 
         # print(vocal_semantic_input.shape, vocal_coarse_input.shape)
 
+        self.semantic_stage.eval()
+        self.coarse_stage.eval()
+
         vocal_semantic_token_ids = get_or_compute_semantic_token_ids(
             semantic_token_ids = None,
             raw_audio = vocal_semantic_input,
@@ -85,7 +88,7 @@ class Llambada(torch.nn.Module):
         accom_semantic_token_ids = self.semantic_stage.generate(
             vocal_semantic_token_ids,
             text_prompt,
-            filter_thres=0.95,
+            filter_thres=0.9,
             temperature=0.95,
             max_time_steps= second_output * 50,
         )

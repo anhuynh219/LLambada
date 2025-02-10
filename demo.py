@@ -25,6 +25,8 @@ def load_model(
         rvq_ckpt_path = rvq_path,
         kmean_path = kmean_path,
         clap_ckpt_path = clap_ckpt_path,
+        coarse_weight = coarse_weight,
+        semantic_weight = semantic_weight,
         semantic_cross_entropy_loss_weights = semantic_cross_entropy_loss_weights,
         coarse_cross_entropy_loss_weights = coarse_cross_entropy_loss_weights
     )
@@ -41,26 +43,26 @@ def load_data(
     target_length = second_length * sample_hz
 
     if data.shape[0] > 1:
-        data = torch.mean(data, dim=0)
+        data = torch.mean(data, dim=0).unsqueeze(0)
 
     normalized_data = zero_mean_unit_var_norm(data)
-    data = data[:target_length]
-    normalized_data = normalized_data[:target_length]
+    data = data[:, :target_length]
+    normalized_data = normalized_data[:, :target_length]
 
-    audio_for_wav2vec = resample(normalized_data, sample_hz, 16000)
+    audio_for_wav2vec = resample(normalized_data, sample_hz, wav2vec.target_sample_hz)
     audio_for_wav2vec = int16_to_float32(float32_to_int16(audio_for_wav2vec))
     audios_for_semantic = torch.cat([audio_for_wav2vec], axis = 0).to(device)
 
-    audio_for_encodec = resample(data, sample_hz, 24000)
+    audio_for_encodec = resample(data, sample_hz, neural_codec.sample_rate)
     audio_for_encodec = int16_to_float32(float32_to_int16(audio_for_encodec)) 
     audios_for_acoustic = torch.cat([audio_for_encodec], axis = 0).to(device)
 
-    return audios_for_semantic.unsqueeze(0), audios_for_acoustic.unsqueeze(0), [prompt]
+    return audios_for_semantic, audios_for_acoustic, [prompt]
 
 if __name__ == "__main__":
     
     vocal_path = "/workspace/mu-lm/open-musiclm/demo3/99/vocal.mp3"
-    prompt = "This song contains someone playing an acoustic drum set with a simple bassline. An e-guitar is playing a simple melody along with a piano playing chords in the midrange. A male voice is singing in a higher key. This song may be playing live at a festival."
+    prompt = "This song is playing with drum and guitar"
     device = "cuda"
     model, coarse_cfg, wav2vec, neural_codec, clap = load_model()
     model.to(device)
@@ -70,12 +72,12 @@ if __name__ == "__main__":
         10,
         device
     )
-    print(vocal_for_semantic.shape, vocal_for_acoustic.shape, prompt)
+    # print(vocal_for_semantic.shape, vocal_for_acoustic.shape, prompt)
     wave = model.generate(
         vocal_for_semantic,
         vocal_for_acoustic,
         prompt,
         10
     ).detach().cpu()[0]
-    print(wave.shape)
-    output = torchaudio.save("output.mp3", wave, sample_rate=24000)
+    # print(wave.shape)
+    output = torchaudio.save("output2.mp3", wave, sample_rate=neural_codec.sample_rate)
