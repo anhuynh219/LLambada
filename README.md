@@ -5,7 +5,7 @@
 
 Welcome to the official implementation of Llambada version 0 repository! This project provides the tools and resources to use the Llambada model, an advanced system for music generation.
 
-- Paper: [Arxiv](https://arxiv.org/pdf/2411.01661)
+- Paper: [![arXiv](https://img.shields.io/badge/arXiv-1234.56789-b31b1b.svg?style=flat-square)](https://arxiv.org/pdf/2411.01661)
 
 - Demo page: [Llambada demo](https://songgen-ai.github.io/llambada-demo/)
 
