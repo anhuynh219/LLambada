@@ -64,6 +64,8 @@ Create stunning music compositions with Llambada effortlessly!
 
 Moreover, you can change the gpu for the inference via add this config to the front ```CUDA_VISIBLE_DEVICES=<your device id> ```
 
+Total inference time for 10 seconds singing accompaniment is about 1 minute and 30 seconds on 1xH100.
+
 ### Contact
 
 If you have any further questions or having new ideas for the model features, you can raise in the issue or you can contact us in songgen.ai and we can have support in our ability!
