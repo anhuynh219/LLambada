@@ -41,9 +41,6 @@ pip install -r requirements.txt
 # 🚅 Training (Coming Soon)
 Instructions and scripts for training will be provided in a future release.
 
-# 🖥️ Inference
-Utilize the pre-trained Llambada model to generate music easily.
-
 ## Checkpoint download
 
 All of the checkpoints for semantic stage and the coarse stage can be downloaded in the [HuggingFace of SongGen](https://huggingface.co/songgen/Llambada)
@@ -54,7 +51,8 @@ After downloading the checkpoints, you need to create the ```ckpts/``` folder, t
 
 Regarding the tokenizer ```bpe_simple_vocab_16e6.txt.gz```, you need to copy that file to the ```/workspace/llambada_test/LLambada/models/base/tokenizers/laion_clap/clap_module``` for the setup.
 
-## Running Inference
+# 🖥️ Inference
+Utilize the pre-trained Llambada model to generate music easily.
 
 To run the inference, please run via the python file below:
 
