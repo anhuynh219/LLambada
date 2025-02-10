@@ -6,7 +6,7 @@ Welcome to the official implementation of Llambada version 0 repository! This pr
 
 - Paper: [Arxiv](https://arxiv.org/pdf/2411.01661)
 
-- Demo page: [Llambadad demo](https://songgen-ai.github.io/llambada-demo/)
+- Demo page: [Llambada demo](https://songgen-ai.github.io/llambada-demo/)
 
 This model is trained on totally 4.4k music hours dataset with 2xA100 GPUS. The training cost for this model is about 720 USD in 5 days for 2 stages: the semantic stage and the coarse stage.
 
