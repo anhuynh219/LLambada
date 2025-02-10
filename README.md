@@ -19,6 +19,7 @@ Please note: At this time, the repository includes only the inference code and p
 
 - [x] Model code
 - [x] Inference script
+- [ ] Update mix audio script for vocal and accompaniment
 - [ ] Checkpoint
 - [ ] Training script
 - [ ] Gradio inference
