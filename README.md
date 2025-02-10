@@ -1,9 +1,12 @@
 # Llambada-v0 🐑 🎵
+
+❗Note: This repository is in-progress for the improvement, please create the issue or contact with us if are there any issues. 
+
 Welcome to the official implementation of Llambada version 0 repository! This project provides the tools and resources to use the Llambada model, an advanced system for music generation.
 
 - Paper: [Arxiv](https://arxiv.org/pdf/2411.01661)
 
-- Demo page: [Llambadad demo](https://songgen-ai.github.io/llambada-demo/)
+- Demo page: [Llambada demo](https://songgen-ai.github.io/llambada-demo/)
 
 This model is trained on totally 4.4k music hours dataset with 2xA100 GPUS. The training cost for this model is about 720 USD in 5 days for 2 stages: the semantic stage and the coarse stage.
 
@@ -60,6 +63,8 @@ python infer.py
 Create stunning music compositions with Llambada effortlessly!
 
 Moreover, you can change the gpu for the inference via add this config to the front ```CUDA_VISIBLE_DEVICES=<your device id> ```
+
+Total inference time for 10 seconds singing accompaniment is about 1 minute and 30 seconds on 1xH100.
 
 ### Contact
 

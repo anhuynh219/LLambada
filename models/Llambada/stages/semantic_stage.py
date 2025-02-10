@@ -110,9 +110,11 @@ class SemanticStage(BaseStage):
             conditioning_text=text_prompt
         )
 
+        # print("Semantic stage: ",vocal_semantic_token_ids.shape, clap_token_ids.shape)
+
         sampled_token_ids = self.base_transformer.generate(
             conditioning_token_ids=[vocal_semantic_token_ids, clap_token_ids],
-            pred_token_ids=accom_semantic_token_ids,
+            pred_token_ids=None,
             max_time_steps=max_time_steps,
             temperature=temperature,
             include_eos_in_output=include_eos_in_output,
