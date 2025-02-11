@@ -106,6 +106,21 @@ Total inference time for 10 seconds singing accompaniment is about 1 minute and 
 
 If you have any further questions or having new ideas for the model features, you can raise in the issue or you can contact us in songgen.ai and we can have support in our ability!
 
+### Acknowledgement
+
+Thank you so much to [MERT](https://huggingface.co/m-a-p/MERT-v0), [Open-musiclm](https://github.com/zhvng/open-musiclm), [Encodec](https://github.com/facebookresearch/encodec) for their published works, that can help us done this repo.
+
+### Citation
+
+```
+@article{trinh2024sing,
+  title={Sing-On-Your-Beat: Simple Text-Controllable Accompaniment Generations},
+  author={Trinh, Quoc-Huy and Nguyen, Minh-Van and Mau, Trong-Hieu Nguyen and Tran, Khoa and Do, Thanh},
+  journal={arXiv preprint arXiv:2411.01661},
+  year={2024}
+}
+```
+
 ### License 
 
 ```
