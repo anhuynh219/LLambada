@@ -7,7 +7,7 @@ Welcome to the official implementation of Llambada version 0 repository! This pr
 
 - Paper: [![arXiv](https://img.shields.io/badge/arXiv-1234.56789-b31b1b.svg?style=flat-square)](https://arxiv.org/pdf/2411.01661)
 
-- Demo page: [Llambada demo](https://songgen-ai.github.io/llambada-demo/)
+- Project page: [Llambada demo](https://songgen-ai.github.io/llambada-demo/)
 
 This model is trained on totally 4.4k music hours dataset with 2xA100 GPUS. The training cost for this model is about 720 USD in 5 days for 2 stages: the semantic stage and the coarse stage.
 
@@ -24,7 +24,43 @@ Please note: At this time, the repository includes only the inference code and p
 - [ ] Training script
 - [ ] Gradio inference
 - [ ] Model serving
-# 🛠️ Installation
+
+### Demo 
+
+Some of our demos can be found here, with the following input and output:
+
+- **Input:** Vocal + prompt
+
+- **Output:** Accompaniment
+
+We then mix them together for the final song, which you can listen at the mixed results
+
+#### Demo 1
+
+**Prompt**: Music beat for movie with  acoustic, female vocals,  piano,  guitar,  bass
+
+**Vocal**
+
+https://github.com/user-attachments/assets/aff32f24-5cd7-4174-be2f-be4b24a20154
+
+**Mixed Result**
+
+https://github.com/user-attachments/assets/2065a16f-87c0-4f6b-b79e-5fe0e1c2d028
+
+#### Demo 2
+
+**Prompt**: Music beat with romantic, female vocals,  piano, bass, love song,  movie soundtrack
+
+**Vocal**:
+
+https://github.com/user-attachments/assets/529b86b2-6d17-4c23-8fb4-ce3b055473ac
+
+**Mixed Result**
+
+https://github.com/user-attachments/assets/9944a15a-1006-4efc-9f29-6ec11d7673d3
+
+
+### 🛠️ Installation
 Follow the steps below to set up your Python 3.10 environment using Conda and install the required dependencies.
 
 Step 1: Create the environment
@@ -38,10 +74,10 @@ Install ffmpeg (for ubuntu, the script is here) and the dependencies.
 apt update && apt install ffmpeg
 pip install -r requirements.txt
 ```
-# 🚅 Training (Coming Soon)
+### 🚅 Training (Coming Soon)
 Instructions and scripts for training will be provided in a future release.
 
-## Checkpoint download
+### Pretrained checkpoint
 
 All of the checkpoints for semantic stage and the coarse stage can be downloaded in the [HuggingFace of SongGen](https://huggingface.co/songgen/Llambada)
 
@@ -51,7 +87,7 @@ After downloading the checkpoints, you need to create the ```ckpts/``` folder, t
 
 Regarding the tokenizer ```bpe_simple_vocab_16e6.txt.gz```, you need to copy that file to the ```/workspace/llambada_test/LLambada/models/base/tokenizers/laion_clap/clap_module``` for the setup.
 
-# 🖥️ Inference
+### 🖥️ Inference
 Utilize the pre-trained Llambada model to generate music easily.
 
 To run the inference, please run via the python file below:
