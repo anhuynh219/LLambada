@@ -93,7 +93,7 @@ Utilize the pre-trained Llambada model to generate music easily.
 To run the inference, please run via the python file below:
 
 ``` bash
-python infer.py
+python demo.py
 ```
 
 Create stunning music compositions with Llambada effortlessly!
