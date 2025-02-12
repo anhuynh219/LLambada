@@ -108,7 +108,7 @@ If you have any further questions or having new ideas for the model features, yo
 
 ### Acknowledgement
 
-Thank you so much to [MERT](https://huggingface.co/m-a-p/MERT-v0), [Open-musiclm](https://github.com/zhvng/open-musiclm), [Encodec](https://github.com/facebookresearch/encodec) for their published works, that can help us done this repo.
+Thank you so much to [MERT](https://huggingface.co/m-a-p/MERT-v0), [Open-musiclm](https://github.com/zhvng/open-musiclm), [Encodec](https://github.com/facebookresearch/encodec), [AudioLM-pytorch](https://github.com/lucidrains/audiolm-pytorch), [CLAP](https://github.com/LAION-AI/CLAP) for their published works, that can help us done this repo.
 
 ### Citation
 
