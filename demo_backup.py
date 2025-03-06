@@ -2,18 +2,17 @@ from models.Llambada.builder import build_llambada_model
 import json
 import torch
 import torchaudio
-import argparse
 from utils.preprocess_audio import zero_mean_unit_var_norm, float32_to_int16, int16_to_float32
 from torchaudio.functional import resample
 
 def load_model(
-    semantic_cfg_file = "/content/LLambada/configs/model_config/llambada_tiny_cfg/semantic_stage.json",
-    coarse_cfg_file = "/content/LLambada/configs/model_config/llambada_tiny_cfg/coarse_stage.json",
-    semantic_weight = "/content/LLambada/ckpts/Llambada/llambada.transformer.77000.pt",
-    rvq_path = "/content/LLambada/ckpts/Llambada/clap.rvq.950_no_fusion.pt",
-    coarse_weight = "/content/LLambada/ckpts/Llambada/coarse.transformer.17400.pt",
-    kmean_path = "/content/LLambada/ckpts/Llambada/kmeans.joblib",
-    clap_ckpt_path = "/content/LLambada/ckpts/Llambada/630k-audioset-best.pt",
+    semantic_cfg_file = "/workspace/llambada_test/LLambada/configs/model_config/llambada_tiny_cfg/semantic_stage.json",
+    coarse_cfg_file = "/workspace/llambada_test/LLambada/configs/model_config/llambada_tiny_cfg/coarse_stage.json",
+    semantic_weight = "/workspace/llambada_test/LLambada/ckpts/llambada.transformer.77000.pt",
+    rvq_path = "/workspace/llambada_test/LLambada/ckpts/clap.rvq.950_no_fusion.pt",
+    coarse_weight = "/workspace/llambada_test/LLambada/ckpts/coarse.transformer.17400.pt",
+    kmean_path = "/workspace/llambada_test/LLambada/ckpts/kmeans.joblib",
+    clap_ckpt_path = "/workspace/llambada_test/LLambada/ckpts/630k-audioset-best.pt",
     semantic_cross_entropy_loss_weights = [0.0, 0.0, 1.0],
     coarse_cross_entropy_loss_weights = [0.0, 0.0, 1.0]
 ):
@@ -61,16 +60,9 @@ def load_data(
     return audios_for_semantic, audios_for_acoustic, [prompt]
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Demo script")
-    parser.add_argument("-p", "--path", required=True, help="Path to the vocal file")
-    # Parse the arguments
-    args = parser.parse_args()
-    # Get the path from the arguments
-    vocal_path = args.path
-
-    print(f"The path to the file is: {vocal_path}")
     
-    prompt = "This song is playing with piano"
+    vocal_path = "/workspace/mu-lm/open-musiclm/demo3/99/vocal.mp3"
+    prompt = "This song is playing with drum and guitar"
     device = "cuda"
     model, coarse_cfg, wav2vec, neural_codec, clap = load_model()
     model.to(device)
