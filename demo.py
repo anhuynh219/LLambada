@@ -78,14 +78,15 @@ def load_data(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Demo script")
     parser.add_argument("-p", "--path", required=True, help="Path to the vocal file")
+    parser.add_argument("-i", "--instruction", required=True, default="Music beat with happiness, female vocals, piano, bass, love song" , help="Prompt for accompaniment")
     # Parse the arguments
     args = parser.parse_args()
     # Get the path from the arguments
     vocal_path = args.path
-
+    prompt = args.instruction
     print(f"The path to the file is: {vocal_path}")
-    
-    prompt = "Music beat with happiness, female vocals, piano, bass, love song"
+    print(f"Instrucion: {prompt}")
+    # prompt = "Music beat with happiness, female vocals, piano, bass, love song"
     device = "cuda"
     model, coarse_cfg, wav2vec, neural_codec, clap = load_model()
     model.to(device)
