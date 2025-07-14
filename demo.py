@@ -5,15 +5,30 @@ import torchaudio
 import argparse
 from utils.preprocess_audio import zero_mean_unit_var_norm, float32_to_int16, int16_to_float32
 from torchaudio.functional import resample
+import os
+
+# Lấy đường dẫn thư mục chứa file hiện tại
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Trỏ tới folder cùng cấp tên là "my_folder"
+folder_path = os.path.join(current_dir, 'models')
+
+semantic_cfg_file = os.path.join(current_dir, "configs/model_config/llambada_tiny_cfg/semantic_stage.json")
+coarse_cfg_file = os.path.join(current_dir, "configs/model_config/llambada_tiny_cfg/coarse_stage.json")
+semantic_weight = os.path.join(current_dir, "ckpts/llambada.transformer.77000.pt")
+rvq_path = os.path.join(current_dir, "ckpts/clap.rvq.950_no_fusion.pt")
+coarse_weight = os.path.join(current_dir, "ckpts/coarse.transformer.17400.pt")
+kmean_path = os.path.join(current_dir, "ckpts/kmeans.joblib")
+clap_ckpt_path = os.path.join(current_dir, "ckpts/630k-audioset-best.pt")
 
 def load_model(
-    semantic_cfg_file = "/content/LLambada/configs/model_config/llambada_tiny_cfg/semantic_stage.json",
-    coarse_cfg_file = "/content/LLambada/configs/model_config/llambada_tiny_cfg/coarse_stage.json",
-    semantic_weight = "/content/LLambada/ckpts/Llambada/llambada.transformer.77000.pt",
-    rvq_path = "/content/LLambada/ckpts/Llambada/clap.rvq.950_no_fusion.pt",
-    coarse_weight = "/content/LLambada/ckpts/Llambada/coarse.transformer.17400.pt",
-    kmean_path = "/content/LLambada/ckpts/Llambada/kmeans.joblib",
-    clap_ckpt_path = "/content/LLambada/ckpts/Llambada/630k-audioset-best.pt",
+    semantic_cfg_file = semantic_cfg_file,
+    coarse_cfg_file = coarse_cfg_file,
+    semantic_weight = semantic_weight,
+    rvq_path = rvq_path,
+    coarse_weight = coarse_weight,
+    kmean_path = kmean_path,
+    clap_ckpt_path = clap_ckpt_path,
     semantic_cross_entropy_loss_weights = [0.0, 0.0, 1.0],
     coarse_cross_entropy_loss_weights = [0.0, 0.0, 1.0]
 ):
@@ -70,7 +85,7 @@ if __name__ == "__main__":
 
     print(f"The path to the file is: {vocal_path}")
     
-    prompt = "This song is playing with piano"
+    prompt = "Music beat with happiness, female vocals, piano, bass, love song"
     device = "cuda"
     model, coarse_cfg, wav2vec, neural_codec, clap = load_model()
     model.to(device)
